@@ -137,12 +137,12 @@ def main():
                 ...
                 draw_figures(game.board)
 
-    # Обновить окно игры.
-    pygame.display.update()
+        # Обновить окно игры.
+        pygame.display.update()
 
 
-# Деинициализирует все модули pygame, которые были инициализированы ранее.
-pygame.quit()
+    # Деинициализирует все модули pygame, которые были инициализированы ранее.
+    pygame.quit()
 
 if __name__ == '__main__':
     main()
