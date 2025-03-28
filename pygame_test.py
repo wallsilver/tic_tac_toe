@@ -98,7 +98,7 @@ def draw_figures(board):
 
 
 # Сюда нужно добавить функцию save_result().
-def save_result(self, result):
+def save_result(result):
     with open('results.txt', 'a', encoding='utf-8') as f:
         f.write(result + '\n')
 
@@ -134,7 +134,18 @@ def main():
                 # проверить на победу,
                 # проверить на ничью,
                 # сменить игрока.
-                ...
+                if game.board[clicked_row][clicked_col ] == ' ':
+                    game.make_move(clicked_row, clicked_col, current_player)
+                    if game.check_win(current_player):
+                        result = f'Победили {current_player}.'
+                        print(result)
+                        running = False
+                        save_result(result)
+                    elif game.is_board_full():
+                        result = 'Ничья!'
+                        running = False
+                        save_result(result)
+                    current_player = 'O' if current_player == 'X' else 'X'
                 draw_figures(game.board)
 
         # Обновить окно игры.
